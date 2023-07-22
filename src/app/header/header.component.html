@@ -1,0 +1,19 @@
+<header>
+  <h1>Exchange Rate</h1>
+  <div class="exchange-rates">
+    <ng-container *ngIf="isLoading; else rates">
+      Loading...
+    </ng-container>
+
+    <ng-template #rates>
+      <ng-container *ngIf="!isError; else error">
+        <span>USD to UAH: {{ exchangeRateUSDToUAH | number: '1.2-2' }}</span>
+        <span>EUR to UAH: {{ exchangeRateEURToUAH | number: '1.2-2' }}</span>
+      </ng-container>
+    </ng-template>
+
+    <ng-template #error>
+      Error fetching exchange rates.
+    </ng-template>
+  </div>
+</header>
